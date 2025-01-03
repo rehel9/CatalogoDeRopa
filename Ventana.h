@@ -5,11 +5,14 @@ class Ventana{
       private:
               int altura;
               int ancho;
+                   
+              int xm, xy;
       public:
              Ventana();
              void PantallaInicial();
              void Muestra();
-      }
+             void Encabezado(bool &inicio);
+      };
 
 
 #endif

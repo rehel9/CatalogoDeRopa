@@ -1,12 +1,10 @@
-#include <iostream>
-
 #include <graphics.h>
 
 #include "Ventana.h"
 
-int main( )
+int main()
 {
+	Ventana ventana;
 	
-    
-	return( 0 );
+	return 0;
 }
