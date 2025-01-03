@@ -2,13 +2,11 @@
 
 #include <graphics.h>
 
-using namespace std;
+#include "Ventana.h"
 
 int main( )
 {
-	initwindow( 640 , 480 , "WinBGIm" );
 	
-	closegraph( );
     
 	return( 0 );
 }
