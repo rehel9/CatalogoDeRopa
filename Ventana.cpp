@@ -9,6 +9,7 @@ Ventana::Ventana(){
                    bool inicio = false; 
                    PantallaInicial();
                    do {
+                       delay(50);
                        Encabezado(inicio);
                    } while (true);
                    
@@ -17,19 +18,15 @@ Ventana::Ventana(){
                    }
 
 void Ventana::PantallaInicial(){
-                           cleardevice();
                            setcolor(WHITE);
                            setlinestyle(0, 1, 3);
                            rectangle(500, 300, 780, 360); 
                            outtextxy(560, 320, "INICIAR");
-                           outtextxy(450, 250, "BIENVENIDO A LA TIENDA DE ROPA");
-                           
-                           
+                           outtextxy(450, 250, "BIENVENIDO A LA TIENDA DE ROPA");   
 }
 
 void Ventana::Encabezado(bool &inicio){
     int Z = ancho;
-    cleardevice();
     setcolor(WHITE);
     setlinestyle(0, 1, 3);
     rectangle(0, 0, 1280, 120);
