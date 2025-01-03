@@ -7,6 +7,8 @@ class Ventana{
               int ancho;
       public:
              Ventana();
+             void PantallaInicial();
+             void Muestra();
       }
 
 
