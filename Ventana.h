@@ -12,6 +12,10 @@ class Ventana{
              void PantallaInicial();
              void Muestra();
              void Encabezado(bool &inicio);
+             void Playeras();
+             void Sudaderas();
+             void Accesorios();
+             void Chamarras();
       };
 
 
