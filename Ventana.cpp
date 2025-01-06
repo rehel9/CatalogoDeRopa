@@ -113,6 +113,36 @@ void Ventana::Playeras(){
      rectangle(900, 500, 1080, 760); 
      outtextxy(960, 720, "Playeras");
      readimagefile("playera6.jpg", 900, 500, 1080, 740);
+     
+     if (xm < 280 && xm > 100 && xy < 460 && xy > 200) {
+                cleardevice();
+                getch();
+                Encabezado(inicio);
+            }
+     if (xm < 680 && xm > 500 && xy < 460 && xy > 200) {
+                cleardevice();
+                getch();
+                Encabezado(inicio);
+            }
+     if (xm < 1080 && xm > 900 && xy < 460 && xy > 200) {
+                cleardevice();
+                getch();
+                Encabezado(inicio);
+            }
+     if (xm < 280 && xm > 100 && xy < 760 && xy > 500) {
+                cleardevice();
+                getch();
+                Encabezado(inicio);
+            }
+     if (xm < 680 && xm > 500 && xy < 760 && xy > 500) {
+                cleardevice();
+                getch();
+                Encabezado(inicio);
+            }
+     if (xm < 1080 && xm > 900 && xy < 760 && xy > 500) {
+                PantallaInicial();
+                inicio = false;
+            }
      }
      
 void Ventana::Sudaderas(){
