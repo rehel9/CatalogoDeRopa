@@ -1,21 +1,32 @@
 #include "Ventana.h"
+#include "Item.h"
 #include <graphics.h>
+
 
 Ventana::Ventana(){
                    altura = 720;
                    ancho = 1280;
-                   initwindow( ancho , altura , "Catalogo de Ropa" );
+                   int ventanaActual;
+                   }
                    
+void Ventana::IniciarPantalla(){
+                   ventanaUno = ventanaActual = initwindow( ancho , altura , "Catalogo de Ropa", 0, 0, false, true );
                    bool inicio = false; 
+                   categoriaActual = 1;
                    PantallaInicial();
                    do {
                        delay(50);
                        Encabezado(inicio);
+                       if (categoriaActual == 1) PantallaInicial();
+                       if (categoriaActual == 2) Playeras();
+                       if (categoriaActual == 3) Sudaderas();
+                       if (categoriaActual == 4) Chamarras();
+                       if (categoriaActual == 5) Accesorios();
+                       if (categoriaActual == 6) PantallaInicial();
                    } while (true);
                    
                    closegraph();
-                   
-                   }
+     }
 
 void Ventana::PantallaInicial(){
                            setcolor(BLACK);
@@ -87,11 +98,17 @@ void Ventana::Encabezado(bool &inicio){
     }
 
 void Ventana::Playeras(){
+     categoriaActual = 2;
      outtextxy(200, 130, "Playeras");
+     
+     char buffer[50];
+     sprintf(buffer, "%d", ventanaUno);
+     outtextxy(300, 130, buffer);
      
      rectangle(100, 200, 280, 460); 
      outtextxy(160, 400, "Playera");
-     readimagefile("playera1.jpg", 100, 200, 280, 380);
+     outtextxy(160, 400, "Playera");
+     readimagefile("playera1.jpg", 101, 201, 279, 379);
      
      rectangle(500, 200, 680, 460); 
      outtextxy(560, 400, "Playera");
@@ -114,38 +131,41 @@ void Ventana::Playeras(){
      outtextxy(960, 720, "Playeras");
      readimagefile("playera6.jpg", 900, 500, 1080, 740);
      
-     if (xm < 280 && xm > 100 && xy < 460 && xy > 200) {
+     if (ismouseclick(WM_LBUTTONDOWN)) {
+        getmouseclick(WM_LBUTTONDOWN, xm, xy);
+     
+        if (xm < 280 && xm > 100 && xy < 460 && xy > 200) {
+                //ventanaActual = initwindow( 640 , 480 , "Playera", 640, 480, false, false);
+                //setcurrentwindow(ventanaActual); 
+                Item item1("Playera", "playera1.jpg", 7.0f);
+                getch();
+            }
+             if (xm < 680 && xm > 500 && xy < 460 && xy > 200) {
                 cleardevice();
                 getch();
-                Encabezado(inicio);
             }
-     if (xm < 680 && xm > 500 && xy < 460 && xy > 200) {
+            if (xm < 1080 && xm > 900 && xy < 460 && xy > 200) {
                 cleardevice();
                 getch();
-                Encabezado(inicio);
             }
-     if (xm < 1080 && xm > 900 && xy < 460 && xy > 200) {
+            if (xm < 280 && xm > 100 && xy < 760 && xy > 500) {
                 cleardevice();
                 getch();
-                Encabezado(inicio);
             }
-     if (xm < 280 && xm > 100 && xy < 760 && xy > 500) {
+            if (xm < 680 && xm > 500 && xy < 760 && xy > 500) {
                 cleardevice();
                 getch();
-                Encabezado(inicio);
             }
-     if (xm < 680 && xm > 500 && xy < 760 && xy > 500) {
+            if (xm < 1080 && xm > 900 && xy < 760 && xy > 500) {
                 cleardevice();
                 getch();
-                Encabezado(inicio);
             }
-     if (xm < 1080 && xm > 900 && xy < 760 && xy > 500) {
-                PantallaInicial();
-                inicio = false;
-            }
-     }
+        }
+        Encabezado(inicio);
+}
      
 void Ventana::Sudaderas(){
+     categoriaActual = 3;
      outtextxy(200, 130, "Sudaderas");
      
      rectangle(100, 200, 280, 460); 
@@ -175,6 +195,7 @@ void Ventana::Sudaderas(){
      }     
      
 void Ventana::Chamarras(){
+     categoriaActual = 4;
      outtextxy(200, 130, "Chamarras");
      
      rectangle(100, 200, 280, 460); 
@@ -204,6 +225,7 @@ void Ventana::Chamarras(){
      }
      
 void Ventana::Accesorios(){
+     categoriaActual = 5;
      outtextxy(200, 130, "Accesorios");
      
      rectangle(100, 200, 280, 460); 
@@ -230,4 +252,9 @@ void Ventana::Accesorios(){
      rectangle(900, 500, 1080, 760); 
      outtextxy(960, 720, "Sticker");
      readimagefile("accesorio6.jpg", 900, 500, 1080, 740);
+     }
+
+void Ventana::SetearVarPrivadas(int altura, int ancho){
+     this->altura = altura;
+     this->ancho = ancho;
      }

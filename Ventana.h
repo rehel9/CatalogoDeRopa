@@ -5,10 +5,19 @@ class Ventana{
       private:
               int altura;
               int ancho;
+              
+              int categoriaActual;
+              
+              int ventanaUno;
+              
+              bool inicio;
                    
-              int xm, xy;
+              
+              
+              float precio[6];
       public:
              Ventana();
+             void IniciarPantalla();
              void PantallaInicial();
              void Muestra();
              void Encabezado(bool &inicio);
@@ -16,6 +25,10 @@ class Ventana{
              void Sudaderas();
              void Accesorios();
              void Chamarras();
+             void SetearVarPrivadas(int altura, int ancho);
+             int ventanaActual;
+             
+             int xm, xy;
       };
 
 

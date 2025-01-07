@@ -5,6 +5,7 @@
 int main()
 {
 	Ventana ventana;
+	ventana.IniciarPantalla();
 	
 	return 0;
 }
